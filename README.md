@@ -30,19 +30,39 @@ Agents must pass through policy enforcement before accessing tools.
 
 ---
 
+## Quickstart
+
+Clone repository
+
+git clone https://github.com/XwhyZ-WHYLD/sentinel-agents
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run API server
+
+uvicorn api.server:app --reload
+
+Open interactive API
+
+http://127.0.0.1:8000/docs
+
+---
+
 ## Architecture
 
 User
-↓
+ ↓
 Agent Runtime
-↓
+ ↓
 Policy Engine
-↓
+ ↓
 Capability Manager
-↓
+ ↓
 Sandbox Execution
-↓
-Tools / APIs
+ ↓
+External Tools
 
 
 ---
