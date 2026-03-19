@@ -1,3 +1,4 @@
+> Constraint-first multi-agent system for governed AI execution
 # Sentinel Agents
 
 A constraint-first, layered multi-agent system designed for **safe, governed, and adaptive AI execution**.
@@ -55,6 +56,45 @@ The system evolves in structured phases:
 
 ---
 
+## 🧭 System Architecture
+
+                ┌──────────────┐
+                │   User Input │
+                └──────┬───────┘
+                       ↓
+                ┌──────────────┐
+                │   API Layer  │
+                └──────┬───────┘
+                       ↓
+                ┌──────────────┐
+                │   Planner    │
+                └──────┬───────┘
+                       ↓
+                ┌──────────────┐
+                │   Executor   │
+                └──────┬───────┘
+                       ↓
+          ┌──────────────────────────┐
+          │     Capabilities Layer   │
+          │ (filesystem / tools / APIs)
+          └──────────┬──────────────┘
+                     ↓
+        ┌────────────────────────────┐
+        │ Policy Layer (constraints) │
+        └──────────┬─────────────────┘
+                   ↓
+        ┌────────────────────────────┐
+        │ Risk Intelligence Layer    │
+        └──────────┬─────────────────┘
+                   ↓
+        ┌────────────────────────────┐
+        │ Runtime (adaptive control) │
+        └──────────┬─────────────────┘
+                   ↓
+                ┌──────────────┐
+                │    Output    │
+                └──────────────┘
+                
 ## 🔄 Execution Flow
 
 ---
