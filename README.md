@@ -1,121 +1,116 @@
 # Sentinel Agents
 
-**Sentinel Agents** is a security-first runtime for autonomous AI agents.
-
-The framework introduces a **governed execution model** where agents can only act through explicitly granted capabilities enforced by a policy engine and sandbox layer.
+A constraint-first, layered multi-agent system designed for **safe, governed, and adaptive AI execution**.
 
 ---
 
-## Why Sentinel Agents
+## 🧠 Overview
 
-Most AI agent frameworks focus on automation and capability expansion.
+Sentinel Agents is an experimental architecture that prioritizes:
 
-Sentinel Agents focuses on **controlled autonomy**.
+- Controlled execution over raw capability
+- Evidence-bound decision making
+- Risk-aware routing
+- Multi-agent coordination
 
-Key principle:
-
-LLM → Policy → Capability → Sandbox → Tools
-Agents must pass through policy enforcement before accessing tools.
-
----
-
-## Core Features
-
-- Capability-based permissions
-- Policy engine enforcement
-- Secure execution model
-- API runtime for agents
-- Modular architecture
-- Audit-friendly design
+Instead of a single monolithic agent, the system decomposes intelligence into **specialized layers and roles**.
 
 ---
 
-## Quickstart
+## 🧩 Architecture
 
-Clone repository
-
-git clone https://github.com/XwhyZ-WHYLD/sentinel-agents
-
-Install dependencies
-
-pip install -r requirements.txt
-
-Run API server
-
-uvicorn api.server:app --reload
-
-Open interactive API
-
-http://127.0.0.1:8000/docs
+The system evolves in structured phases:
 
 ---
 
-## Architecture
+## ⚙️ Core Components
 
-User
- ↓
-Agent Runtime
- ↓
-Policy Engine
- ↓
-Capability Manager
- ↓
-Sandbox Execution
- ↓
-External Tools
+### 🧭 Planner
+- Decomposes tasks into structured actions
+- Assigns execution paths
 
+### ⚡ Executor
+- Performs actions
+- Interfaces with capabilities
 
----
+### 🔁 Runtime
+- Manages execution lifecycle
+- Handles retries, failures, adaptation
 
-## Project Structure
+### 🧱 Capabilities Layer
+- Abstract interface for tools (filesystem, APIs, etc.)
+- Enables modular expansion
 
-sentinel-agents
-│
-├── agent
-├── api
-├── capabilities
-├── policy
-├── sandbox
+### 🛡 Policy Layer
+- Enforces constraints
+- Prevents unsafe or invalid actions
 
+### ⚠️ Risk Intelligence
+- Scores actions based on risk
+- Routes execution dynamically
 
----
-
-## Roadmap
-
-### Phase 1
-✔ Agent runtime  
-✔ Capability permissions  
-✔ Policy enforcement  
-
-### Phase 2
-Sandbox execution  
-Container isolation  
-Resource limits  
-
-### Phase 3
-Agent identity layer  
-Capability tokens  
-Trust model  
-
-### Phase 4
-Developer SDK  
-Agent manifests  
-Capability marketplace  
+### 🐝 Swarm Layer
+- Coordinates multiple agents
+- Enables parallel and adaptive execution
 
 ---
 
-## Vision
-
-Sentinel Agents aims to become a **secure runtime layer for autonomous AI systems**.
-
-Think of it as:
-
-- Docker for AI agents  
-- Kubernetes for agent orchestration  
-- A governance layer for AI autonomy  
+## 🔄 Execution Flow
 
 ---
 
-## License
+## 🚀 Key Features
 
-MIT License
+- Multi-agent orchestration (planner / executor / runtime)
+- Capability-based execution
+- Policy-enforced safety
+- Risk-aware decision routing
+- Modular and extensible architecture
+
+---
+
+## 🎯 Design Principles
+
+- **Constraint-first** (safety before capability)
+- **Separation of concerns** (planner vs executor vs policy)
+- **Resilience under uncertainty**
+- **Governed execution, not autonomous drift**
+
+---
+
+## 📦 Repository Structure
+
+---
+
+## 🔮 Roadmap
+
+### Phase 5 — Observability (Next)
+- Decision tracing
+- Execution logs
+- Risk audit layer
+- Explainability interface
+
+### Future Directions
+- Distributed execution
+- Mesh-based coordination
+- Offline-first resilience
+
+---
+
+## 🧪 Status
+
+Active development — evolving architecture.
+
+---
+
+## 🤝 Vision
+
+Towards **controllable, safe, and distributed AI systems** that can operate under real-world constraints.
+
+---
+
+## ⚠️ Disclaimer
+
+This is an experimental system exploring architectural patterns for agent safety and coordination.
+
+---
