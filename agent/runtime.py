@@ -60,29 +60,17 @@ def run_agent(prompt: str, agent_name: str, permissions: List[str], policy: Poli
         if tool_name is None:
             # No more tool calls needed; return accumulated answer.
             break
-        # Check policy before executing.
-        allowed, reason = policy.check(agent_name, tool_name, tool_args)
-        log_entry: Dict[str, Any] = {
-            "tool": tool_name,
-            "args": tool_args,
-            "allowed": allowed,
-            "reason": reason,
-        }
-        if not allowed:
-            log_entry["result"] = None
-            logs.append(log_entry)
-            # Denied tool calls stop the agent.
-            answer_parts.append(f"[Denied {tool_name}: {reason}]")
-            break
-        # Execute the tool via the executor.
-        result = executor.execute(tool_name, tool_args)
-        log_entry["result"] = result
+        # Use the executor to evaluate risk, enforce policy and run the tool.
+        result, log_entry = executor.execute_with_policy(agent_name, tool_name, tool_args, policy)
         logs.append(log_entry)
+        if not log_entry.get("allowed", False):
+            # Denied tool calls stop the agent.
+            answer_parts.append(f"[Denied {tool_name}: {log_entry['reason']}]")
+            break
         # Append result to answer.
         if result:
             answer_parts.append(str(result))
-        # Update prompt/context for next step if planner uses result.
-        # In this simple MVP we just stop after one successful call.
+        # In this simple implementation we stop after one successful call.
         break
 
     answer = "\n".join(answer_parts) if answer_parts else ""
